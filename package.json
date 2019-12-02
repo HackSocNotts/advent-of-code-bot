@@ -4,7 +4,7 @@
   "description": "Advent of Code Bot for the HackSoc Discord",
   "main": "index.js",
   "scripts": {
-    "start": "TOKEN='NTE4MjQwNjE4MzkzMTA4NDk2.DuN6Gw.G3OqrUcOoO0Y9SCb9bxOMOIO_o4' PREFIX='!aoc' LEADERBOARD='https://adventofcode.com/2018/leaderboard/private/view/216440.json' COOKIE='session=53616c7465645f5f85ce3c916fd86cb5e8c00d4e6a562cb4de95fd68f872f359ac105c7cc18a1b28dd0de16061e27a28' node index.js"
+    "start": "docker-compose up --build"
   },
   "repository": {
     "type": "git",
