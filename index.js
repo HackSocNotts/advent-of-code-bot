@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const rp = require('request-promise-native');
+const deepEqual = require('deep-equal');
 var previousResult;
 
 const sortLeaderboard = (members) => {
@@ -50,7 +51,7 @@ sync = async (bot) => {
 
   const [leaderboardString, finalEmbed, raw] = await getLeaderboard(embed);
   
-  if (raw !== previousResult) {
+  if (!deepEqual(raw, previousResult, {strict: true})) {
     previousResult = raw;
     channel.setTopic(leaderboardString);
     channel.send(finalEmbed);
