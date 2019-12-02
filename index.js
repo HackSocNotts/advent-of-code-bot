@@ -20,7 +20,6 @@ const getLeaderboard = async (embed) => {
     json: true,
   });
   return leaderboard.then(response => {
-    console.log(process.env.COOKIE);
     let leaderboardString = "**Leaderboard:**\n";
     const members = sortLeaderboard(Object.entries(response.members));
     let i = 1;
@@ -53,8 +52,10 @@ sync = async (bot) => {
   
   if (!deepEqual(raw, previousResult, {strict: true})) {
     previousResult = raw;
-    channel.setTopic(leaderboardString);
-    channel.send(finalEmbed);
+    channel.setTopic(leaderboardString)
+      .catch((err) => console.log('failed to set topic', err));
+    channel.send(finalEmbed)
+      .catch((err) => console.error('failed to send embed', err));
   }
 };
 
@@ -70,4 +71,5 @@ bot.on('ready', () => {
   setInterval(() => sync(bot), 300000);
 });
 
-bot.login(process.env.TOKEN);
+bot.login(process.env.TOKEN)
+  .catch(() => console.error('failed to login'));
