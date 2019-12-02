@@ -1,0 +1,30 @@
+{
+  "name": "adventofcodebot",
+  "version": "0.1.0",
+  "description": "Advent of Code Bot for the HackSoc Discord",
+  "main": "index.js",
+  "scripts": {
+    "start": "TOKEN='NTE4MjQwNjE4MzkzMTA4NDk2.DuN6Gw.G3OqrUcOoO0Y9SCb9bxOMOIO_o4' PREFIX='!aoc' LEADERBOARD='https://adventofcode.com/2018/leaderboard/private/view/216440.json' COOKIE='session=53616c7465645f5f85ce3c916fd86cb5e8c00d4e6a562cb4de95fd68f872f359ac105c7cc18a1b28dd0de16061e27a28' node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hacksocnotts/advent-of-code-bot.git"
+  },
+  "keywords": [
+    "advent",
+    "of",
+    "code"
+  ],
+  "author": "Aaron Osher <aaron@aaronosher.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hacksocnotts/advent-of-code-bot/issues"
+  },
+  "homepage": "https://github.com/hacksocnotts/advent-of-code-bot#readme",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2",
+    "request-promise-native": "^1.0.5"
+  }
+}
