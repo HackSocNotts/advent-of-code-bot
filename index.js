@@ -73,7 +73,7 @@ bot.on('ready', () => {
   });
   sync(bot);
   setInterval(() => sync(bot), 300000);
-  setInterval(() => sync(bot, true), 43200);
+  setInterval(() => sync(bot, true), 43200000);
 });
 
 bot.on('message', (messsage) => {
