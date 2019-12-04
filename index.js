@@ -35,10 +35,11 @@ const getLeaderboard = async (embed) => {
   });
 };
 
-sync = async (bot) => {  
+sync = async (bot, showMessage=false, dmChannel=null) => {  
   // const channel = bot.channels.get("515366371081846832") // advent-of-code
   // const channel = bot.channels.get("501071108359979020") // botspam
-  const channel = bot.channels.get(process.env.CHANNEL);
+
+  const channel = dmChannel ? dmChannel : bot.channels.get(process.env.CHANNEL);
 
   const embed = new Discord.RichEmbed()
       .setTitle("**Leaderboard**")
@@ -54,6 +55,9 @@ sync = async (bot) => {
     previousResult = raw;
     channel.setTopic(leaderboardString)
       .catch((err) => console.log('failed to set topic', err));
+    showMessage && channel.send(finalEmbed)
+      .catch((err) => console.error('failed to send embed', err));
+  } else if (showMessage) {
     channel.send(finalEmbed)
       .catch((err) => console.error('failed to send embed', err));
   }
@@ -69,6 +73,13 @@ bot.on('ready', () => {
   });
   sync(bot);
   setInterval(() => sync(bot), 300000);
+  setInterval(() => sync(bot, true), 43200);
+});
+
+bot.on('message', (messsage) => {
+  if (messsage.content === '!aoc leaderboard') {
+    sync(bot, true, bot.users.get(messsage.author.id).dmChannel);
+  }
 });
 
 bot.login(process.env.TOKEN)
