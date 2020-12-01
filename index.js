@@ -43,9 +43,9 @@ sync = async (bot, showMessage=false, dmChannel=null) => {
 
   const embed = new Discord.RichEmbed()
       .setTitle("**Leaderboard**")
-      .setDescription("Join our leaderboard at https://adventofcode.com/2019/leaderboard/private with code `216440-b64023a2`")
+      .setDescription("Join our leaderboard at https://adventofcode.com/2020/leaderboard/private with code `216440-b64023a2`")
       .setFooter("The leaderboard has updated")
-      .setURL("https://adventofcode.com/2019/leaderboard/private/view/216440")
+      .setURL("https://adventofcode.com/2020/leaderboard/private/view/216440")
       .setThumbnail("https://www.geek.com/wp-content/uploads/2017/12/advent-1-625x352.jpg")
       .setColor("#ffff66");
 
